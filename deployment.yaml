@@ -19,15 +19,21 @@ spec:
       - name: "nginx-1"
         image: "nginx:latest"
 ---
-apiVersion: "autoscaling/v2beta1"
-kind: "HorizontalPodAutoscaler"
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
 metadata:
-  name: "nginx-1-hpa-4tal"
-  namespace: "default"
-  labels:
-    app: "nginx-1"
+  name: autoscal-nginx
 spec:
   scaleTargetRef:
-    kind: "Deployment"
-    name: "nginx-1"
-    apiVersion: "apps/v1"
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-1
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 40
+    
+    
+    
+    
+    
+    
