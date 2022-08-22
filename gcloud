@@ -1,0 +1,1 @@
+gcloud container clusters create occvsautoscale --zone=us-central1-c --num-node=2 --enable-aitoscaling --mix-node=2 --max-node=4
